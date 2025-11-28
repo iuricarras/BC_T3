@@ -22,7 +22,8 @@ def multisig_scriptSig(txin, txout, txin_scriptPubKey):
     # TODO: Complete this script to unlock the BTC that was locked in the
     # multisig transaction created in Exercise 3a.
     return [
-        # fill this in!
+        bank_sig,
+        cust2_sig
     ]
     ######################################################################
 

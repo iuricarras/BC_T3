@@ -14,19 +14,39 @@ from bitcoin.core.script import *
 # This is the ScriptPubKey for the swap transaction
 def coinExchangeScript(public_key_sender, public_key_recipient, hash_of_secret):
     return [
-        # fill this in!
+        # fill this in!             # [secret, signature_recipient]  ou [signature_sender, signature_recipient]
+        OP_SWAP,                    # [signature_recipient, secret]  ou [signature_recipient, signature_sender]
+        OP_HASH160,                 # [signature_recipient, hash(secret)] -> se for realmente o segredo
+        hash_of_secret,             # [signature_recipient, hash(secret), hash_of_secret]
+        OP_EQUAL,                   # verifica se os dois hashes sao iguais [signature_recipient, true] ou [signature_recipient, false]
+        OP_IF,                      # [signature_recipient] 
+            public_key_recipient,   
+            OP_CHECKSIGVERIFY,      # verifica a assinatura do recipient 
+        OP_ELSE,                    # [signature_recipient, signature_sender]
+            # OP_SWAP,                # [signature_sender, signature_recipient]
+            OP_0,                   # [signature_recipient, signature_sender, 0]
+            OP_ROT,                 # [signature_sender, 0, signature_recipient]
+            OP_ROT,                 # [0, signature_sender, signature_recipient]
+            OP_2,                   # [0, signature_sender, signature_recipient, 2]
+            public_key_sender,      # [0, signature_sender, signature_recipient, 2, public_key_sender]
+            public_key_recipient,   # [0, signature_sender, signature_recipient, 2, public_key_sender, public_key_recipient]
+            OP_2,                   # [0, signature_sender, signature_recipient, 2, public_key_sender, public_key_recipient, 2]
+            OP_CHECKMULTISIGVERIFY, # verifica se ambas assinaturas sao validas []
+        OP_ENDIF
     ]
 
 # This is the ScriptSig that the receiver will use to redeem coins
 def coinExchangeScriptSig1(sig_recipient, secret):
     return [
-        # fill this in!
+        secret,
+        sig_recipient
     ]
 
 # This is the ScriptSig for sending coins back to the sender if unredeemed
 def coinExchangeScriptSig2(sig_sender, sig_recipient):
     return [
-        # fill this in!
+        sig_sender,
+        sig_recipient
     ]
 ######################################################################
 

@@ -9,9 +9,17 @@ from Q1 import send_from_P2PKH_transaction
 
 ######################################################################
 # TODO: Complete the scriptPubKey implementation for Exercise 2
+# x + y = 154, x - y = 32
+# x = 93, y = 61
 Q2a_txout_scriptPubKey = [
-        # fill this in!
-    ]
+    OP_2DUP,           # Duplica os dois valores do topo (agora temos: x y x y)
+    OP_ADD,            # Soma os dois do topo (agora temos: x y (x+y))
+    154,               # Push 154 para a stack (agora temos: x y (x+y) 154)
+    OP_EQUALVERIFY,    # Verifica se (x+y) == 154 e retira os dois comparados e o true da stack
+    OP_SUB,            # Subtrai y de x (agora temos: (x-y))
+    32,                # Push 32 para a stack (agora temos: (x-y) 32)
+    OP_EQUALVERIFY     # Verifica se (x-y) == 32
+]
 ######################################################################
 
 if __name__ == '__main__':
