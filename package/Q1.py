@@ -13,7 +13,7 @@ def P2PKH_scriptPubKey(address):
     return [
         OP_DUP,
         OP_HASH160,
-        address,
+        Hash160(address),
         OP_EQUALVERIFY,
         OP_CHECKSIG
     ]
