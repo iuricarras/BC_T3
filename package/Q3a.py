@@ -40,17 +40,17 @@ Q3a_txout_scriptPubKey = [
     cust2_public_key,        # [0, customer_sig, 1, cust1_pubkey, cust2_pubkey]
     cust3_public_key,        # [0, customer_sig, 1, cust1_pubkey, cust2_pubkey, cust3_pubkey]
     OP_3,                    # total de chaves publicas [0, customer_sig, 1, cust1_pubkey, cust2_pubkey, cust3_pubkey, 3]
-    OP_CHECKMULTISIGVERIFY   # verifica se pelo menos 1 assinatura é valida [true]
+    OP_CHECKMULTISIG         # verifica se pelo menos 1 assinatura é valida [true]
 ]
 ######################################################################
 
 if __name__ == '__main__':
     ######################################################################
     # TODO: set these parameters correctly
-    amount_to_send = None # amount of BTC in the output you're sending minus fee
+    amount_to_send = 0.00017910 # amount of BTC in the output you're sending minus fee
     txid_to_spend = (
-        'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX')
-    utxo_index = None # index of the output you are spending, indices start at 0
+        '96a1d18b1704ac18d8802d99e313505e4d8a40c67efb7556aa96057f233315ca')
+    utxo_index = 3 # index of the output you are spending, indices start at 0
     ######################################################################
 
     response = send_from_P2PKH_transaction(amount_to_send, txid_to_spend, 

@@ -43,10 +43,10 @@ def send_from_multisig_transaction(amount_to_send, txid_to_spend, utxo_index,
 if __name__ == '__main__':
     ######################################################################
     # TODO: set these parameters correctly
-    amount_to_send = None # amount of BTC in the output you're sending minus fee
+    amount_to_send = 0.00016910 # amount of BTC in the output you're sending minus fee
     txid_to_spend = (
-        'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX')
-    utxo_index = None # index of the output you are spending, indices start at 0
+        'b88e98ed62f9be49f4e08037b93304265865f829b9936992d4938e4b8e843a64')
+    utxo_index = 0 # index of the output you are spending, indices start at 0
     ######################################################################
 
     txin_scriptPubKey = Q3a_txout_scriptPubKey

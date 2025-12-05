@@ -1,0 +1,120 @@
+ALICE SPLIT COINS:
+201 Created
+{
+  "tx": {
+    "block_height": -1,
+    "block_index": -1,
+    "hash": "cbb9dd8c0d27f5b04c1bd633db3b8004ab50bdc8fa64a9606c56c6c4321ee99c",
+    "addresses": [
+      "mrC2rFR5o3qduiAXprhRQZEuP8BJHH3Rzf"
+    ],
+    "total": 170650,
+    "fees": 4982,
+    "size": 497,
+    "vsize": 497,
+    "preference": "low",
+    "relayed_by": "2001:8a0:fc82:b100:d9ca:8c57:c796:c696",
+    "received": "2025-11-30T11:26:17.378760919Z",
+    "ver": 1,
+    "double_spend": false,
+    "vin_sz": 1,
+    "vout_sz": 10,
+    "confirmations": 0,
+    "inputs": [
+      {
+        "prev_hash": "9b4548a91e145089f3bc2aaf34eac208ee775dd28932f8aaa27cb45c043363e5",
+        "output_index": 0,
+        "script": "47304402207cfec447642dabc0bbca5a1ceb3187e4c631714b4de184ac0e762665f43f5dcf02207387bf945cab4cc23ee799e13314155942f97e8a8d43464c2daa648307c1c8df012103e0f416973c670f45c1ad66850c5616e8761a002b1aa3929e0b2a29c721cabde0",
+        "output_value": 175632,
+        "sequence": 4294967295,
+        "addresses": [
+          "mrC2rFR5o3qduiAXprhRQZEuP8BJHH3Rzf"
+        ],
+        "script_type": "pay-to-pubkey-hash",
+        "age": 4783381
+      }
+    ],
+    "outputs": [
+      {
+        "value": 17065,
+        "script": "76a9147515486218d42516ad1cacfd281015e914faf19788ac",
+        "addresses": [
+          "mrC2rFR5o3qduiAXprhRQZEuP8BJHH3Rzf"
+        ],
+        "script_type": "pay-to-pubkey-hash"
+      },
+      {
+        "value": 17065,
+        "script": "76a9147515486218d42516ad1cacfd281015e914faf19788ac",
+        "addresses": [
+          "mrC2rFR5o3qduiAXprhRQZEuP8BJHH3Rzf"
+        ],
+        "script_type": "pay-to-pubkey-hash"
+      },
+      {
+        "value": 17065,
+        "script": "76a9147515486218d42516ad1cacfd281015e914faf19788ac",
+        "addresses": [
+          "mrC2rFR5o3qduiAXprhRQZEuP8BJHH3Rzf"
+        ],
+        "script_type": "pay-to-pubkey-hash"
+      },
+      {
+        "value": 17065,
+        "script": "76a9147515486218d42516ad1cacfd281015e914faf19788ac",
+        "addresses": [
+          "mrC2rFR5o3qduiAXprhRQZEuP8BJHH3Rzf"
+        ],
+        "script_type": "pay-to-pubkey-hash"
+      },
+      {
+        "value": 17065,
+        "script": "76a9147515486218d42516ad1cacfd281015e914faf19788ac",
+        "addresses": [
+          "mrC2rFR5o3qduiAXprhRQZEuP8BJHH3Rzf"
+        ],
+        "script_type": "pay-to-pubkey-hash"
+      },
+      {
+        "value": 17065,
+        "script": "76a9147515486218d42516ad1cacfd281015e914faf19788ac",
+        "addresses": [
+          "mrC2rFR5o3qduiAXprhRQZEuP8BJHH3Rzf"
+        ],
+        "script_type": "pay-to-pubkey-hash"
+      },
+      {
+        "value": 17065,
+        "script": "76a9147515486218d42516ad1cacfd281015e914faf19788ac",
+        "addresses": [
+          "mrC2rFR5o3qduiAXprhRQZEuP8BJHH3Rzf"
+        ],
+        "script_type": "pay-to-pubkey-hash"
+      },
+      {
+        "value": 17065,
+        "script": "76a9147515486218d42516ad1cacfd281015e914faf19788ac",
+        "addresses": [
+          "mrC2rFR5o3qduiAXprhRQZEuP8BJHH3Rzf"
+        ],
+        "script_type": "pay-to-pubkey-hash"
+      },
+      {
+        "value": 17065,
+        "script": "76a9147515486218d42516ad1cacfd281015e914faf19788ac",
+        "addresses": [
+          "mrC2rFR5o3qduiAXprhRQZEuP8BJHH3Rzf"
+        ],
+        "script_type": "pay-to-pubkey-hash"
+      },
+      {
+        "value": 17065,
+        "script": "76a9147515486218d42516ad1cacfd281015e914faf19788ac",
+        "addresses": [
+          "mrC2rFR5o3qduiAXprhRQZEuP8BJHH3Rzf"
+        ],
+        "script_type": "pay-to-pubkey-hash"
+      }
+    ]
+  }
+}

@@ -18,17 +18,17 @@ Q2a_txout_scriptPubKey = [
     OP_EQUALVERIFY,    # Verifica se (x+y) == 154 e retira os dois comparados e o true da stack
     OP_SUB,            # Subtrai y de x (agora temos: (x-y))
     32,                # Push 32 para a stack (agora temos: (x-y) 32)
-    OP_EQUALVERIFY     # Verifica se (x-y) == 32
+    OP_EQUAL           # Verifica se (x-y) == 32
 ]
 ######################################################################
 
 if __name__ == '__main__':
     ######################################################################
     # TODO: set these parameters correctly
-    amount_to_send = None # amount of BTC in the output you're sending minus fee
+    amount_to_send = 0.00017910 # amount of BTC in the output you're sending minus fee
     txid_to_spend = (
-        'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX')
-    utxo_index = None # index of the output you are spending, indices start at 0
+        '96a1d18b1704ac18d8802d99e313505e4d8a40c67efb7556aa96057f233315ca')
+    utxo_index = 2 # index of the output you are spending, indices start at 0
     ######################################################################
 
     response = send_from_P2PKH_transaction(

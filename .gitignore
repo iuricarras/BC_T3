@@ -1,3 +1,4 @@
 .envrc
 .direnv/
+venv/
 package/lib/config.py
