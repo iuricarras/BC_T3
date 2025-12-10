@@ -12,3 +12,36 @@
 #
 
 
+1) O coinExchangeScript é um ScriptPubKey projetado para um Atomic Swap. 
+Define duas condições de resgate mutuamente exclusivas: 
+	- Resgate pelo Recetor: se este fornecer o segredo x e uma assinatura válida.
+	- Devolução ao Remetente: se o remetente e o recetor fornecerem as assinaturas validas.
+
+O script começa com a manipulação da stack através de OP_SWAP e OP_DUP. A duplicação é essencial, pois OP_EQUAL consome 
+os valores que compara. O OP_HASH160 calcula o hash do primeiro input, que é então comparado com o hash_of_secret. 
+Se esta comparação (OP_EQUAL) for True, o recetor demonstrou conhecer o segredo x, e o script segue o caminho OP_IF. 
+Se a comparação inicial for False, o script segue o caminho OP_ELSE. 
+
+    - OP_IF: Neste caminho, o segredo é descartado (OP_DROP) e a transação é validada com a chave pública e assinatura 
+        do recetor através de OP_CHECKSIG. 
+
+    - OP_ELSE: Esta rota, utilizada quando o segredo x não é fornecido, realiza uma verificação OP_CHECKMULTISIG. 
+        Este requisito exige que ambas as assinaturas (do remetente e do recetor) sejam válidas contra as chaves 
+        públicas correspondentes. 
+        
+Assim, este script suporta o resgate do recetor se ele souber o segredo ou permite um reembolso, se ambas as partes 
+concordarem em assinar a transação.
+
+
+2) Este script garante atomicidade: ou ambos trocam moedas, ou nenhum troca. A Alice bloqueia a BTC com locktime de 5 blocos, 
+    e o Bob bloqueia a BCY com locktime de 3 blocos. Se Alice revelar x para resgatar os BCY do Bob, ele ve x na blockchain e 
+    resgata os BTC dela. Se ninguém revelar x, ambos recuperam os seus fundos após o locktime. 
+    O locktime maior da Alice garante que o Bob tem tempo de reagir.
+    O locktime é verificado automaticamente ao nível da transação.
+
+
+3) A Alice recupera sempre os fundos se o segredo x nunca for revelado porque o ramo ELSE exige as assinaturas de ambos após o 
+    locktime, o Bob é incentivado a cooperar, senão também não recupera os seus próprios fundos. 
+
+    Um multisig 1-of-2 não funciona porque o Bob poderia roubar os BTC da Alice sem revelar o segredo x. 
+    A combinação 2-of-2 multisig com o locktime previne o roubo e garante devoluções.
